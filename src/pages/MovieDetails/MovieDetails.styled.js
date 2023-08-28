@@ -34,7 +34,7 @@ export const MovieWrapper = styled.div`
 
 export const MoviePoster = styled.img`
     display: block;
-    width: 30%;
+    width: 20%;
 `
 export const GenresList = styled.span`
     margin-right: 5px;

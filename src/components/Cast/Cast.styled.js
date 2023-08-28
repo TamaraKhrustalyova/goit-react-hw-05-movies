@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const ActorImg = styled.img`
-    width: 15%
+    width: 10%
 `
 export const TextName = styled.p`
     font-size: 18px;
