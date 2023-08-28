@@ -5,7 +5,6 @@ import { fetchMovies } from 'Api/fetchMovies';
 const Reviews = () => {
     const {movieId} = useParams();
     const [reviews, setReviews] = useState([]);
-    console.log(reviews);
 
     useEffect(() => {
         async function MovieReviews() {

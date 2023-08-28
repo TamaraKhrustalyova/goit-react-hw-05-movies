@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; 
 import { fetchMovies } from 'Api/fetchMovies';
+import {ActorImg, TextName, Text } from './Cast.styled'
 
 const Cast = () => {
     const {movieId} = useParams();
@@ -19,14 +20,19 @@ const Cast = () => {
         MovieCredits()
     }, [credits, movieId])
 
+    const castImgUrl = path => {
+        return path ? baseImgUrl + path : `https://upload.wikimedia.org/wikipedia/commons/c/cf/Movie_star_-_actor.svg`;
+    }
+
     return (
         <> 
+        {!credits?.length && <p>We don't have cast inormation for this movie</p>}
             <ul>
                 {credits?.map(({credit_id, name, character, profile_path}) => (
                     <li key={credit_id}>
-                        <img src={baseImgUrl + profile_path} alt=''></img>
-                        <p>{name}</p>
-                        <p>Character: {character}</p>
+                        <ActorImg src={castImgUrl(profile_path)} alt=''></ActorImg>
+                        <TextName>{name}</TextName>
+                        <Text>Character: {character}</Text>
                     </li>
                 ))}
             </ul>
